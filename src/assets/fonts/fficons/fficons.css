@@ -62,10 +62,10 @@
 .icon-delete:before {
   content: '\e801';
 } /* '' */
-.icon-edit:before {
+.icon-logo:before {
   content: '\e802';
 } /* '' */
-.icon-logo:before {
+.icon-edit:before {
   content: '\e803';
 } /* '' */
 .icon-magnifier:before {

@@ -59,15 +59,21 @@
 .icon-add:before {
   content: '\e800';
 } /* '' */
-.icon-delete:before {
+.icon-boy:before {
   content: '\e801';
 } /* '' */
-.icon-logo:before {
+.icon-delete:before {
   content: '\e802';
 } /* '' */
 .icon-edit:before {
   content: '\e803';
 } /* '' */
-.icon-magnifier:before {
+.icon-logo:before {
   content: '\e804';
 } /* '' */
+.icon-girl:before {
+  content: '\e805';
+} /* '' */
+.icon-magnifier:before {
+  content: '\e806';
+} /* '' */

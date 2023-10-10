@@ -1,0 +1,23 @@
+.list-page {
+  .sort-by {
+    @apply flex justify-end items-center h-16;
+    label {
+      @apply text-gray-500;
+    }
+
+    select {
+      @apply text-gray-800 bg-transparent;
+    }
+
+    @screen md {
+      @apply h-20;
+    }
+
+    @screen xl {
+      @apply h-32;
+    }
+  }
+  .cat-list {
+    @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-5 md:mb-10 xl:mb-20;
+  }
+}

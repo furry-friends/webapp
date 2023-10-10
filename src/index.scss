@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './fficons.css';
+@import './assets/fonts/fficons/fficons.css';
 
 body {
   margin: 0;
@@ -11,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @apply bg-gray-100;
 }
 
 code {

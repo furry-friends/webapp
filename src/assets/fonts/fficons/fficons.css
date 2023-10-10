@@ -1,13 +1,12 @@
 @font-face {
   font-family: 'fficons';
-  src: url('./assets/fonts/fficons/fficons.eot?84963322');
+  src: url('./fficons.eot?84963322');
   src:
-    url('./assets/fonts/fficons/fficons.eot?84963322#iefix')
-      format('embedded-opentype'),
-    url('./assets/fonts/fficons/fficons.woff2?84963322') format('woff2'),
-    url('./assets/fonts/fficons/fficons.woff?84963322') format('woff'),
-    url('./assets/fonts/fficons/fficons.ttf?84963322') format('truetype'),
-    url('./assets/fonts/fficons/fficons.svg?84963322#fficons') format('svg');
+    url('./fficons.eot?84963322#iefix') format('embedded-opentype'),
+    url('./fficons.woff2?84963322') format('woff2'),
+    url('./fficons.woff?84963322') format('woff'),
+    url('./fficons.ttf?84963322') format('truetype'),
+    url('./fficons.svg?84963322#fficons') format('svg');
   font-weight: normal;
   font-style: normal;
 }

@@ -28,10 +28,10 @@
   .name {
     @apply mb-1 text-gray-800;
     .icon-boy {
-      color: #53a4db;
+      @apply text-boy;
     }
     .icon-girl {
-      color: #f179aa;
+      @apply text-girl;
     }
   }
 

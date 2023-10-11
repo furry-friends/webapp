@@ -1,8 +1,9 @@
 import React from 'react';
 
-import './Header.scss';
 import SearchInput from './SearchInput';
 import debounce from '../../helpers/debounce';
+
+import './Header.scss';
 
 interface HeaderProps {
   onSearch: (value: string) => void;

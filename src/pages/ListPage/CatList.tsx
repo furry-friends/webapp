@@ -3,10 +3,10 @@ import { CatContext } from '../../states/cats';
 import CatCard from '../../components/CatCard/CatCard';
 import Cat from '../../models/Cat';
 import catRepository from '../../repositories/catRepository';
-import sortCatsBy from '../../helpers/sortCatsBy';
+import sortCatsBy, { SortBy } from '../../helpers/sortCatsBy';
 
 interface CatListProps {
-  defaultSortBy: string;
+  defaultSortBy: SortBy;
   onEdit: (cat: Cat) => void;
   keyword: string;
 }

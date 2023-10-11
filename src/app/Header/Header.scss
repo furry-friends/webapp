@@ -1,7 +1,5 @@
 .header {
-  @apply flex items-center relative;
-
-  background-color: theme('colors.primary');
+  @apply flex items-center relative bg-primary;
   height: 52px;
 
   .container {
@@ -9,8 +7,7 @@
   }
 
   .title {
-    color: theme('colors.white');
-    @apply flex items-center grow;
+    @apply flex items-center grow text-white;
 
     font-size: 1.1rem;
     .logo {

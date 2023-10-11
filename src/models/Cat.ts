@@ -44,7 +44,9 @@ class Cat implements CatPropos {
 
     try {
       const birthDate = new Date(this.birthday);
-      return (new Date().getTime() - birthDate.getTime()) / 86400000;
+      return Math.round(
+        (new Date().getTime() - birthDate.getTime()) / 86400000,
+      );
     } catch (e) {
       return 0;
     }

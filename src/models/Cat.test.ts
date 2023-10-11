@@ -51,6 +51,38 @@ test('empty static method', () => {
   expect(cat.id).toBe(-1);
 });
 
+test('age getter', () => {
+  jest.useFakeTimers('modern');
+  jest.setSystemTime(new Date(2023, 9, 10));
+
+  const cat = new Cat({
+    id: 1,
+    name: 'cat',
+    gender: '',
+    birthday: '2023-10-01',
+    bio: 'bio',
+    picture: '',
+  });
+
+  expect(cat.age).toBe(9);
+
+  jest.useRealTimers();
+});
+
+test('toString', () => {
+  const cat = new Cat({
+    id: 1,
+    name: 'cat',
+    gender: '',
+    birthday: '2023-10-01',
+    bio: 'bio',
+    picture: '',
+  });
+  expect(cat.toString()).toBe(
+    '{"id":1,"name":"cat","gender":"","birthday":"2023-10-01","bio":"bio","picture":""}',
+  );
+});
+
 describe('fromJson', () => {
   test('valid json', () => {
     const cat = Cat.fromJson({

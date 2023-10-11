@@ -1,6 +1,8 @@
 import Cat from '../models/Cat';
 
-const sortCatsBy = (cats: Cat[], sortBy: string): Cat[] => {
+type SortBy = 'id' | 'name' | 'age';
+
+const sortCatsBy = (cats: Cat[], sortBy: SortBy): Cat[] => {
   const clone = [...cats];
 
   clone.sort((a, b): number => {
@@ -18,3 +20,5 @@ const sortCatsBy = (cats: Cat[], sortBy: string): Cat[] => {
 };
 
 export default sortCatsBy;
+
+export type { SortBy };

@@ -13,7 +13,7 @@ interface ListPageProps {
 }
 
 const ListPage: React.FC<ListPageProps> = ({ keyword }): JSX.Element => {
-  const defaultSortBy = '';
+  const defaultSortBy = 'id';
   const [catToEdit, setCatToEdit] = useState<Cat | null>(null);
 
   return (

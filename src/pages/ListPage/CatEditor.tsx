@@ -4,7 +4,7 @@ import DropdownSelect from '../../components/DropdownSelect/DropdownSelect';
 import Cat, { Gender } from '../../models/Cat';
 import catRepository from '../../repositories/catRepository';
 import { CatContext } from '../../states/cats';
-import encodeImage from '../../helpers/encodeImage';
+import base64Encode from '../../helpers/base64Encode';
 
 import './CatEditor.scss';
 
@@ -60,16 +60,17 @@ const CatEditor: React.FC<CatEditorProps> = ({
       return;
     }
 
+    let catWithPicture = cat;
+
     // TODO(Zhiguang):
     // Upload the image to a server and store the URL in the database.
-    let catWithImage = cat;
     if (selectedImage) {
-      catWithImage = cat.copyWith({
-        picture: await encodeImage(selectedImage),
+      catWithPicture = cat.copyWith({
+        picture: await base64Encode(selectedImage),
       });
     }
 
-    saveCat(await catRepository.addOrUpdate(catWithImage));
+    saveCat(await catRepository.addOrUpdate(catWithPicture));
     onClose();
   };
 

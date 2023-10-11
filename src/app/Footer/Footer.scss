@@ -1,15 +1,7 @@
 .footer {
-  @apply flex items-center justify-center;
-
-  background-color: #333;
-  color: #999;
-  height: 52px;
+  @apply flex items-center justify-center bg-gray-700 h-14 md:h-24 text-gray-300;
 
   .icon-logo {
-    @apply text-2xl mr-2;
-  }
-
-  @screen md {
-    height: 80px;
+    @apply text-3xl mr-2;
   }
 }

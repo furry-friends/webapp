@@ -1,0 +1,76 @@
+@mixin small-card {
+  @apply p-3;
+  .name {
+    @apply text-xl;
+  }
+}
+
+@mixin big-card {
+  @apply p-4;
+  .name {
+    @apply text-2xl;
+  }
+}
+
+.cat-card {
+  @apply rounded text-left flex bg-white text-gray-600;
+  min-width: 300px;
+  @include small-card;
+
+  .picture {
+    @apply mr-3 shrink-0;
+    width: 38%;
+    img {
+      @apply w-full;
+    }
+  }
+
+  .name {
+    @apply mb-1 text-gray-800;
+    .icon-boy {
+      color: #53a4db;
+    }
+    .icon-girl {
+      color: #f179aa;
+    }
+  }
+
+  .birthday {
+    @apply mb-3 text-sm text-gray-500;
+  }
+
+  .buttons {
+    @apply flex justify-end items-center;
+    button {
+      @apply w-8 h-8 text-gray-400;
+    }
+    .edit-button {
+      @apply mr-2;
+      &:hover {
+        @apply text-primary;
+      }
+    }
+    .delete-button {
+      @apply text-sm;
+      &:hover {
+        @apply text-red-500;
+      }
+    }
+  }
+
+  @screen sm {
+    @include big-card;
+  }
+  @screen md {
+    @include small-card;
+  }
+  @screen lg {
+    @include big-card;
+  }
+  @screen xl {
+    @include small-card;
+  }
+  @screen 2xl {
+    @include big-card;
+  }
+}

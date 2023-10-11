@@ -1,0 +1,14 @@
+.add-cat-button {
+  @apply rounded text-gray-400 py-16 bg-white text-xl;
+
+  &:hover {
+    @apply bg-gray-200 text-gray-600;
+  }
+
+  .icon-add {
+    @apply text-4xl;
+  }
+  .label {
+    @apply font-bold mt-2;
+  }
+}

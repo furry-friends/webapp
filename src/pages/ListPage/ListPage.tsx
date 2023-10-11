@@ -6,8 +6,10 @@ import './ListPage.scss';
 import Cat from '../../models/Cat';
 import { CatProvider } from '../../states/cats';
 import CatList from './CatList';
+import SortBy from './SortBy';
 
 const ListPage = (): JSX.Element => {
+  const defaultSortBy = '';
   const [catToEdit, setCatToEdit] = useState<Cat | null>(null);
 
   return (
@@ -16,15 +18,12 @@ const ListPage = (): JSX.Element => {
         <CatEditor cat={catToEdit} onClose={(): void => setCatToEdit(null)} />
       )}
       <div className="list-page">
-        <div className="sort-by">
-          <label>Sort by:</label>
-          <select>
-            <option value="name">Name</option>
-            <option value="age">Age</option>
-          </select>
-        </div>
+        <SortBy initialValue={defaultSortBy} />
         <div className="cat-list">
-          <CatList onEdit={(cat: Cat): void => setCatToEdit(cat)} />
+          <CatList
+            defaultSortBy={defaultSortBy}
+            onEdit={(cat: Cat): void => setCatToEdit(cat)}
+          />
           <AddCatButton onClick={(): void => setCatToEdit(Cat.empty)} />
         </div>
       </div>

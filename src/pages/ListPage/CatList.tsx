@@ -3,21 +3,26 @@ import { CatContext } from '../../states/cats';
 import CatCard from '../../components/CatCard/CatCard';
 import Cat from '../../models/Cat';
 import catRepository from '../../repositories/catRepository';
+import sortCatsBy from '../../helpers/sortCatsBy';
 
 interface CatListProps {
+  defaultSortBy: string;
   onEdit: (cat: Cat) => void;
 }
 
-const CatList: React.FC<CatListProps> = ({ onEdit }): JSX.Element => {
+const CatList: React.FC<CatListProps> = ({
+  onEdit,
+  defaultSortBy,
+}): JSX.Element => {
   const { cats, setCats } = useContext(CatContext);
 
   useEffect((): void => {
     (async (): Promise<void> => {
       const cats = await catRepository.query();
 
-      setCats(cats);
+      setCats(sortCatsBy(cats, defaultSortBy));
     })();
-  }, [setCats]);
+  }, [setCats, defaultSortBy]);
 
   return (
     <>

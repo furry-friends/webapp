@@ -4,11 +4,17 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
 const App = (): JSX.Element => {
+  const [keyword, setKeyword] = React.useState<string>('');
+
+  const handleSearch = (value: string): void => {
+    setKeyword(value);
+  };
+
   return (
     <div className="App">
-      <Header />
+      <Header onSearch={handleSearch} />
       <div className="container mx-auto px-2 sm:px-4">
-        <ListPage />
+        <ListPage keyword={keyword} />
       </div>
       <Footer />
     </div>

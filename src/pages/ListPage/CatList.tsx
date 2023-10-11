@@ -8,28 +8,37 @@ import sortCatsBy from '../../helpers/sortCatsBy';
 interface CatListProps {
   defaultSortBy: string;
   onEdit: (cat: Cat) => void;
+  keyword: string;
 }
 
 const CatList: React.FC<CatListProps> = ({
   onEdit,
+  keyword,
   defaultSortBy,
 }): JSX.Element => {
   const { cats, setCats } = useContext(CatContext);
 
   useEffect((): void => {
     (async (): Promise<void> => {
-      const cats = await catRepository.query();
+      const cats = await catRepository.query({ keyword });
 
       setCats(sortCatsBy(cats, defaultSortBy));
     })();
-  }, [setCats, defaultSortBy]);
+  }, [setCats, defaultSortBy, keyword]);
 
   return (
     <>
-      {cats.map(
-        (cat: Cat): JSX.Element => (
-          <CatCard key={cat.id} cat={cat} onEdit={onEdit} />
-        ),
+      {keyword !== '' && cats.length === 0 ? (
+        <div className="italic text-gray-600">
+          No cats with keyword "
+          <span className="text-primary-dark font-bold">{keyword}</span>" found.
+        </div>
+      ) : (
+        cats.map(
+          (cat: Cat): JSX.Element => (
+            <CatCard key={cat.id} cat={cat} onEdit={onEdit} />
+          ),
+        )
       )}
     </>
   );

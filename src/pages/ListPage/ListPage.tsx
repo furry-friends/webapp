@@ -8,7 +8,11 @@ import { CatProvider } from '../../states/cats';
 import CatList from './CatList';
 import SortBy from './SortBy';
 
-const ListPage = (): JSX.Element => {
+interface ListPageProps {
+  keyword: string;
+}
+
+const ListPage: React.FC<ListPageProps> = ({ keyword }): JSX.Element => {
   const defaultSortBy = '';
   const [catToEdit, setCatToEdit] = useState<Cat | null>(null);
 
@@ -21,10 +25,13 @@ const ListPage = (): JSX.Element => {
         <SortBy initialValue={defaultSortBy} />
         <div className="cat-list">
           <CatList
+            keyword={keyword}
             defaultSortBy={defaultSortBy}
             onEdit={(cat: Cat): void => setCatToEdit(cat)}
           />
-          <AddCatButton onClick={(): void => setCatToEdit(Cat.empty)} />
+          {keyword === '' && (
+            <AddCatButton onClick={(): void => setCatToEdit(Cat.empty)} />
+          )}
         </div>
       </div>
     </CatProvider>

@@ -53,7 +53,7 @@ const DropdownSelect: React.FC<DropdownSelectProps> = ({
           onDrop={handleDrop}
           onDragLeave={(): void => setIsDragEntered(false)}
           onDragEnter={(): void => setIsDragEntered(true)}>
-          <div>Drop image here or select to select</div>
+          <div>Drop image here or click to select</div>
           <input type="file" accept="image/jpeg" onChange={handleSelect} />
         </div>
       )}

@@ -70,8 +70,27 @@ class Cat implements CatPropos {
       birthday: '',
       bio: '',
     });
+
+  static fromJson = (json: Record<string, any>): Cat => {
+    if (
+      this.isValidBirthday(json.birthday) === false ||
+      ['boy', 'girl'].indexOf(json.gender) === -1
+    ) {
+      throw new Error('Invalid cat data');
+    }
+
+    return new Cat({
+      id: json.id,
+      name: json.name,
+      gender: json.gender,
+      birthday: json.birthday,
+      bio: json.bio,
+    });
+  };
+
+  static isValidBirthday = (birthday: string): boolean =>
+    /^\d{4}-\d{2}-\d{2}$/.test(birthday);
 }
 
 export default Cat;
-
 export type { Gender };

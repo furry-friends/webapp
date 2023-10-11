@@ -47,3 +47,41 @@ test('empty static method', () => {
 
   expect(cat.id).toBe(-1);
 });
+
+describe('fromJson', () => {
+  test('valid json', () => {
+    const cat = Cat.fromJson({
+      id: 1,
+      name: 'cat',
+      gender: 'boy',
+      birthday: '2023-10-11',
+      bio: 'bio',
+    });
+
+    expect(cat instanceof Cat).toBe(true);
+  });
+
+  test('throw an error when birthday is invalid', () => {
+    expect(() =>
+      Cat.fromJson({
+        id: 1,
+        name: 'cat',
+        gender: 'boy',
+        birthday: '1234',
+        bio: 'bio',
+      }),
+    ).toThrowError();
+  });
+
+  test('throw an error when gender is invalid', () => {
+    expect(() =>
+      Cat.fromJson({
+        id: 1,
+        name: 'cat',
+        gender: '',
+        birthday: '2023-10-11',
+        bio: 'bio',
+      }),
+    ).toThrowError();
+  });
+});

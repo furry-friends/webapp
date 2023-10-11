@@ -1,0 +1,11 @@
+.dropdown-select {
+  @apply relative text-center bg-gray-200 rounded-lg p-2 text-gray-500 h-20;
+  @apply flex items-center justify-center;
+  input {
+    @apply w-full h-full bg-transparent absolute top-0 left-0 opacity-0 cursor-pointer;
+  }
+
+  &.drag-entered {
+    @apply bg-gray-300;
+  }
+}

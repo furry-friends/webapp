@@ -7,6 +7,7 @@ test('constructor', () => {
     gender: 'boy',
     birthday: '2020-01-01',
     bio: 'bio',
+    picture: '',
   });
 
   expect(cat.id).toBe(1);
@@ -23,6 +24,7 @@ test('copyWith', () => {
     gender: 'boy',
     birthday: '',
     bio: 'bio',
+    picture: '',
   });
 
   cat = cat.copyWith({ id: 2, name: 'cat2' });
@@ -37,6 +39,7 @@ test('isNew', () => {
     gender: 'boy',
     birthday: '',
     bio: '',
+    picture: '',
   });
 
   expect(cat.isNew).toBe(true);

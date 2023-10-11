@@ -21,7 +21,7 @@ const CatCard: React.FC<CatCardProps> = ({ cat, onEdit }): JSX.Element => {
   return (
     <div className="cat-card">
       <div className="picture">
-        <img src="https://placekitten.com/200/260" alt="Cat" />
+        <img src={cat.picture} alt="Cat" />
       </div>
       <div className="flex flex-col grow">
         <div className="grow">

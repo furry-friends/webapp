@@ -9,3 +9,10 @@
     @apply bg-gray-300;
   }
 }
+
+.dropdown-preview {
+  @apply flex items-center;
+  button {
+    @apply ml-3 text-red-600;
+  }
+}

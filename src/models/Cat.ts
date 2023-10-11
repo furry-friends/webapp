@@ -6,6 +6,7 @@ interface CatPropos {
   gender: Gender;
   birthday: string;
   bio: string;
+  picture: string;
 }
 
 class Cat implements CatPropos {
@@ -14,13 +15,15 @@ class Cat implements CatPropos {
   gender: Gender;
   birthday: string;
   bio: string;
+  picture: string;
 
-  constructor({ id, name, gender, birthday, bio }: CatPropos) {
+  constructor({ id, name, gender, birthday, bio, picture }: CatPropos) {
     this.id = id;
     this.gender = gender;
     this.name = name;
     this.birthday = birthday;
     this.bio = bio;
+    this.picture = picture;
   }
 
   /**
@@ -60,6 +63,7 @@ class Cat implements CatPropos {
       gender: this.gender,
       birthday: this.birthday,
       bio: this.bio,
+      picture: this.picture,
     });
 
   static empty = (): Cat =>
@@ -69,6 +73,7 @@ class Cat implements CatPropos {
       gender: '',
       birthday: '',
       bio: '',
+      picture: '',
     });
 
   static fromJson = (json: Record<string, any>): Cat => {
@@ -85,6 +90,7 @@ class Cat implements CatPropos {
       gender: json.gender,
       birthday: json.birthday,
       bio: json.bio,
+      picture: json.picture,
     });
   };
 

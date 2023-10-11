@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import './CatEditor.scss';
 import DropdownSelect from '../../components/DropdownSelect/DropdownSelect';
 import Cat, { Gender } from '../../models/Cat';
 import catRepository from '../../repositories/catRepository';
 import { CatContext } from '../../states/cats';
+import encodeImage from '../../helpers/encodeImage';
+
+import './CatEditor.scss';
 
 interface CatEditorProps {
   onClose: () => void;
@@ -18,6 +20,7 @@ const CatEditor: React.FC<CatEditorProps> = ({
   // Add a simple fade in animation when the editor opens
   const [fadeIn, setFadeIn] = useState('');
   const [cat, setCat] = useState(initialData);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   const { saveCat } = useContext(CatContext);
 
@@ -47,12 +50,26 @@ const CatEditor: React.FC<CatEditorProps> = ({
       return;
     }
 
+    if (cat.isNew && !selectedImage) {
+      alert('Please select an image');
+      return;
+    }
+
     if (Cat.isValidBirthday(cat.birthday) === false) {
       alert('Birthday must be in the format YYYY-MM-DD');
       return;
     }
 
-    saveCat(await catRepository.addOrUpdate(cat));
+    // TODO(Zhiguang):
+    // Upload the image to a server and store the URL in the database.
+    let catWithImage = cat;
+    if (selectedImage) {
+      catWithImage = cat.copyWith({
+        picture: await encodeImage(selectedImage),
+      });
+    }
+
+    saveCat(await catRepository.addOrUpdate(catWithImage));
     onClose();
   };
 
@@ -90,7 +107,7 @@ const CatEditor: React.FC<CatEditorProps> = ({
           <div>
             <textarea placeholder="Bio" value={cat.bio} onChange={updateBio} />
           </div>
-          <DropdownSelect />
+          <DropdownSelect onSelected={setSelectedImage} />
           <div className="buttons">
             <button type="button" className="cancel-button" onClick={onClose}>
               Cancel

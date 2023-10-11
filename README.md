@@ -34,3 +34,9 @@ npm test
 ```bash
 npm run lint
 ```
+
+## Screenshots
+
+<img src="https://raw.githubusercontent.com/furry-friends/webapp/main/doc/screenshot.png" alt="screenshot">
+
+<img src="https://raw.githubusercontent.com/furry-friends/webapp/main/doc/screenshot2.png" alt="screenshot">

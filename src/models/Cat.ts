@@ -1,16 +1,18 @@
+type Gender = 'boy' | 'girl' | '';
+
 interface CatPropos {
   id: number;
   name: string;
-  gender: 'boy' | 'girl';
-  birthday: Date;
+  gender: Gender;
+  birthday: string;
   bio: string;
 }
 
 class Cat implements CatPropos {
   id: number;
   name: string;
-  gender: 'boy' | 'girl';
-  birthday: Date;
+  gender: Gender;
+  birthday: string;
   bio: string;
 
   constructor({ id, name, gender, birthday, bio }: CatPropos) {
@@ -28,20 +30,48 @@ class Cat implements CatPropos {
     return this.id === -1;
   }
 
+  /**
+   * Returns the age of the cat in days.
+   * If the birthday is not set or invalid, returns 0.
+   */
+  get age(): number {
+    if (this.birthday === '') {
+      return 0;
+    }
+
+    try {
+      const birthDate = new Date(this.birthday);
+      return (new Date().getTime() - birthDate.getTime()) / 86400000;
+    } catch (e) {
+      return 0;
+    }
+  }
+
   copyWith = (props: Partial<CatPropos>): Cat =>
     new Cat({
       ...this,
       ...props,
     });
 
+  toString = (): string =>
+    JSON.stringify({
+      id: this.id,
+      name: this.name,
+      gender: this.gender,
+      birthday: this.birthday,
+      bio: this.bio,
+    });
+
   static empty = (): Cat =>
     new Cat({
       id: -1,
       name: '',
-      gender: 'boy',
-      birthday: new Date(),
+      gender: '',
+      birthday: '',
       bio: '',
     });
 }
 
 export default Cat;
+
+export type { Gender };

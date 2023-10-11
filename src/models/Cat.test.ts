@@ -5,7 +5,7 @@ test('constructor', () => {
     id: 1,
     name: 'cat',
     gender: 'boy',
-    birthday: new Date(),
+    birthday: '2020-01-01',
     bio: 'bio',
   });
 
@@ -13,7 +13,7 @@ test('constructor', () => {
   expect(cat.name).toBe('cat');
   expect(cat.gender).toBe('boy');
   expect(cat.bio).toBe('bio');
-  expect(cat.birthday).toBeInstanceOf(Date);
+  expect(cat.birthday).toBe('2020-01-01');
 });
 
 test('copyWith', () => {
@@ -21,7 +21,7 @@ test('copyWith', () => {
     id: 1,
     name: 'cat',
     gender: 'boy',
-    birthday: new Date(),
+    birthday: '',
     bio: 'bio',
   });
 
@@ -35,7 +35,7 @@ test('isNew', () => {
     id: -1,
     name: '',
     gender: 'boy',
-    birthday: new Date(),
+    birthday: '',
     bio: '',
   });
 

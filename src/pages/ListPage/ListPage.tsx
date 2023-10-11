@@ -4,14 +4,15 @@ import CatCard from '../../components/CatCard/CatCard';
 import AddCatButton from '../../components/AddCatButton/AddCatButton';
 import CatEditor from './CatEditor';
 import './ListPage.scss';
+import Cat from '../../models/Cat';
 
 const ListPage = (): JSX.Element => {
-  const [isEditorOpen, setIsEditorOpen] = useState(false);
+  const [catToEdit, setCatToEdit] = useState<Cat | null>(null);
 
   return (
     <>
-      {isEditorOpen && (
-        <CatEditor onClose={(): void => setIsEditorOpen(false)} />
+      {catToEdit && (
+        <CatEditor cat={catToEdit} onClose={(): void => setCatToEdit(null)} />
       )}
       <div className="list-page">
         <div className="sort-by">
@@ -26,7 +27,7 @@ const ListPage = (): JSX.Element => {
           <CatCard />
           <CatCard />
           <CatCard />
-          <AddCatButton onClick={(): void => setIsEditorOpen(true)} />
+          <AddCatButton onClick={(): void => setCatToEdit(Cat.empty)} />
         </div>
       </div>
     </>

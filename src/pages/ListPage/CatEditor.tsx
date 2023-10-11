@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import './CatEditor.scss';
 import DropdownSelect from '../../components/DropdownSelect/DropdownSelect';
 import Cat, { Gender } from '../../models/Cat';
 import catRepository from '../../repositories/catRepository';
+import { CatContext } from '../../states/cats';
 
 interface CatEditorProps {
   onClose: () => void;
@@ -17,6 +18,8 @@ const CatEditor: React.FC<CatEditorProps> = ({
   // Add a simple fade in animation when the editor opens
   const [fadeIn, setFadeIn] = useState('');
   const [cat, setCat] = useState(initialData);
+
+  const { saveCat } = useContext(CatContext);
 
   useEffect((): void => {
     setFadeIn('fade-in');
@@ -44,12 +47,12 @@ const CatEditor: React.FC<CatEditorProps> = ({
       return;
     }
 
-    if (/^\d{4}-\d{2}-\d{2}$/.test(cat.birthday) === false) {
+    if (Cat.isValidBirthday(cat.birthday) === false) {
       alert('Birthday must be in the format YYYY-MM-DD');
       return;
     }
 
-    await catRepository.addOrUpdate(cat);
+    saveCat(await catRepository.addOrUpdate(cat));
     onClose();
   };
 

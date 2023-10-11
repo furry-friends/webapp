@@ -1,21 +1,21 @@
 type Gender = 'boy' | 'girl' | '';
 
 interface CatPropos {
-  id: number;
-  name: string;
-  gender: Gender;
-  birthday: string;
-  bio: string;
-  picture: string;
+  readonly id: number;
+  readonly name: string;
+  readonly gender: Gender;
+  readonly birthday: string;
+  readonly bio: string;
+  readonly picture: string;
 }
 
 class Cat implements CatPropos {
-  id: number;
-  name: string;
-  gender: Gender;
-  birthday: string;
-  bio: string;
-  picture: string;
+  readonly id: number;
+  readonly name: string;
+  readonly gender: Gender;
+  readonly birthday: string;
+  readonly bio: string;
+  readonly picture: string;
 
   constructor({ id, name, gender, birthday, bio, picture }: CatPropos) {
     this.id = id;

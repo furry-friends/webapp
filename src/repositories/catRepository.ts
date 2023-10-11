@@ -62,7 +62,7 @@ class CatRepository {
     const cats = this.listAll();
 
     if (cat.isNew) {
-      cat.id = cats.length + 1;
+      cat = cat.copyWith({ id: cats.length + 1 });
       cats.push(cat);
     } else {
       const index = cats.findIndex((e): boolean => e.id === cat.id);

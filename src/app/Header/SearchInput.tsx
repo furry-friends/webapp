@@ -1,7 +1,7 @@
 interface SearchInputProps {
   className?: string;
-  value?: string;
-  onChange?: (value: string) => void;
+  value: string;
+  onChange: (value: string) => void;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({

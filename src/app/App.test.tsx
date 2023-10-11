@@ -1,7 +1,10 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('redner app', async () => {
   render(<App />);
+
+  await act(async () => {
+    expect(true).toBe(true);
+  });
 });

@@ -1,35 +1,40 @@
 import React, { useState } from 'react';
 
-import CatCard from '../../components/CatCard/CatCard';
 import AddCatButton from '../../components/AddCatButton/AddCatButton';
 import CatEditor from './CatEditor';
 import './ListPage.scss';
+import Cat from '../../models/Cat';
+import { CatProvider } from '../../states/cats';
+import CatList from './CatList';
+import SortBy from './SortBy';
 
-const ListPage = (): JSX.Element => {
-  const [isEditorOpen, setIsEditorOpen] = useState(false);
+interface ListPageProps {
+  keyword: string;
+}
+
+const ListPage: React.FC<ListPageProps> = ({ keyword }): JSX.Element => {
+  const defaultSortBy = 'id';
+  const [catToEdit, setCatToEdit] = useState<Cat | null>(null);
 
   return (
-    <>
-      {isEditorOpen && (
-        <CatEditor onClose={(): void => setIsEditorOpen(false)} />
+    <CatProvider>
+      {catToEdit && (
+        <CatEditor cat={catToEdit} onClose={(): void => setCatToEdit(null)} />
       )}
       <div className="list-page">
-        <div className="sort-by">
-          <label>Sort by:</label>
-          <select>
-            <option value="name">Name</option>
-            <option value="birthday">Birthday</option>
-          </select>
-        </div>
+        <SortBy initialValue={defaultSortBy} />
         <div className="cat-list">
-          <CatCard />
-          <CatCard />
-          <CatCard />
-          <CatCard />
-          <AddCatButton onClick={(): void => setIsEditorOpen(true)} />
+          <CatList
+            keyword={keyword}
+            defaultSortBy={defaultSortBy}
+            onEdit={(cat: Cat): void => setCatToEdit(cat)}
+          />
+          {keyword === '' && (
+            <AddCatButton onClick={(): void => setCatToEdit(Cat.empty)} />
+          )}
         </div>
       </div>
-    </>
+    </CatProvider>
   );
 };
 

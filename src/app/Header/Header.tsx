@@ -1,14 +1,38 @@
 import React from 'react';
 
-import './Header.scss';
 import SearchInput from './SearchInput';
+import debounce from '../../helpers/debounce';
 
-const Header = (): JSX.Element => {
+import './Header.scss';
+
+interface HeaderProps {
+  onSearch: (value: string) => void;
+}
+
+const debounceSearch = debounce(300);
+
+const Header: React.FC<HeaderProps> = ({ onSearch }): JSX.Element => {
+  const [keyword, setKeyword] = React.useState<string>('');
+
   const [isSearchbarVisible, setIsSearchbarVisible] =
     React.useState<boolean>(false);
 
+  const handleSearch = (value: string): void => {
+    setKeyword(value);
+
+    debounceSearch((): void => {
+      // TODO(Zhiguang):
+      // Trigger navigation to list page with search keyword in the future.
+      onSearch(value);
+    });
+  };
+
   const createSearchInput = (className: string): JSX.Element => (
-    <SearchInput className={className} />
+    <SearchInput
+      value={keyword}
+      className={className}
+      onChange={handleSearch}
+    />
   );
 
   return (

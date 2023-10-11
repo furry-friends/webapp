@@ -7,6 +7,8 @@ module.exports = {
       colors: {
         primary: '#f8afbb',
         'primary-dark': '#f48fb1',
+        boy: '#53a4db',
+        girl: '#f179aa',
       },
     },
   },

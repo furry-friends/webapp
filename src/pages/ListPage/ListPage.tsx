@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import AddCatButton from '../../components/AddCatButton/AddCatButton';
 import CatEditor from './CatEditor';
 import './ListPage.scss';
-import { CatProvider } from '../../states/cats';
 import CatList from './CatList';
 import SortBy from './SortBy';
-import { Cat } from 'frontend-lib';
+import { Cat, CatProvider } from 'frontend-lib';
 
 interface ListPageProps {
   keyword: string;

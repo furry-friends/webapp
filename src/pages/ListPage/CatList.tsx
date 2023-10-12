@@ -1,7 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { Cat, SortBy, sortCatsBy } from 'frontend-lib';
+import { Cat, CatContext, SortBy, sortCatsBy } from 'frontend-lib';
 
-import { CatContext } from '../../states/cats';
 import CatCard from '../../components/CatCard/CatCard';
 import catRepository from '../../repositories/catRepository';
 

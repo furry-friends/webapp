@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
-import { sortCatsBy, type SortBy as SortByType } from 'frontend-lib';
-
-import { CatContext } from '../../states/cats';
+import {
+  sortCatsBy,
+  type SortBy as SortByType,
+  CatContext,
+} from 'frontend-lib';
 
 interface SortByProps {
   initialValue: SortByType;

@@ -21,6 +21,7 @@ const ListPage: React.FC<ListPageProps> = ({ keyword }): JSX.Element => {
         <CatEditor cat={catToEdit} onClose={(): void => setCatToEdit(null)} />
       )}
       <div className="list-page">
+        {/* Hide the sort by while the cat list is empty */}
         <SortBy initialValue={defaultSortBy} />
         <div className="cat-list">
           <CatList

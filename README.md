@@ -16,6 +16,15 @@ NOTE: This project has only tested in Chrome browser running on a macOS.
 1. React
 2. Tailwindcss
 
+## `frontend-lib` dependency
+
+<https://github.com/furry-friends/frontend-lib>
+
+The code shared between the React.js web app and the React Native app.
+Because I heard that we are planning to use React Native for the mobile app, and
+the goal is to have code shared between both the web and mobile applications as
+much as possible.
+
 ## Running locally
 
 ```bash

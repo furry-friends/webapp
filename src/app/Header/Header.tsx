@@ -43,6 +43,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch }): JSX.Element => {
         <button
           onClick={(): void => {
             setIsSearchbarVisible(false);
+            handleSearch('');
           }}>
           Cancel
         </button>

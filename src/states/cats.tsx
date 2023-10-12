@@ -1,5 +1,5 @@
+import { Cat } from 'frontend-lib';
 import { createContext, useState } from 'react';
-import Cat from '../models/Cat';
 
 interface CatContextValue {
   cats: Cat[];

@@ -1,9 +1,9 @@
 import { useContext, useEffect } from 'react';
+import { Cat, SortBy, sortCatsBy } from 'frontend-lib';
+
 import { CatContext } from '../../states/cats';
 import CatCard from '../../components/CatCard/CatCard';
-import Cat from '../../models/Cat';
 import catRepository from '../../repositories/catRepository';
-import sortCatsBy, { SortBy } from '../../helpers/sortCatsBy';
 
 interface CatListProps {
   defaultSortBy: SortBy;

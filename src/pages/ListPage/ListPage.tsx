@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import AddCatButton from '../../components/AddCatButton/AddCatButton';
 import CatEditor from './CatEditor';
 import './ListPage.scss';
-import Cat from '../../models/Cat';
 import { CatProvider } from '../../states/cats';
 import CatList from './CatList';
 import SortBy from './SortBy';
+import { Cat } from 'frontend-lib';
 
 interface ListPageProps {
   keyword: string;

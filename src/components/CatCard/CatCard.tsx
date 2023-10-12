@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
+import { Cat } from 'frontend-lib';
 
 import './CatCard.scss';
-import Cat from '../../models/Cat';
 import { CatContext } from '../../states/cats';
 import catRepository from '../../repositories/catRepository';
 

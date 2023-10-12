@@ -1,4 +1,4 @@
-import Cat from '../models/Cat';
+import { Cat } from 'frontend-lib';
 
 const CATS_KEY = 'cats';
 

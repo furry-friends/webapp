@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import DropdownSelect from '../../components/DropdownSelect/DropdownSelect';
-import Cat, { Gender } from '../../models/Cat';
 import catRepository from '../../repositories/catRepository';
 import { CatContext } from '../../states/cats';
 import base64Encode from '../../helpers/base64Encode';
+import { Cat, type Gender } from 'frontend-lib';
 
 import './CatEditor.scss';
 

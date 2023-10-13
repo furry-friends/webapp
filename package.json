@@ -8,7 +8,7 @@
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.3.3",
     "web-vitals": "^2.1.4",
-    "frontend-lib": "github:furry-friends/frontend-lib#0ddb2142589d945a50e828f1875f66c65f9037e8"
+    "frontend-lib": "github:furry-friends/frontend-lib#64a412795bcfd0c29a71a8eb452467d5a22d6862"
   },
   "scripts": {
     "start": "react-scripts start",

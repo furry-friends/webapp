@@ -1,9 +1,9 @@
 import React from 'react';
 
 import SearchInput from './SearchInput';
-import debounce from '../../helpers/debounce';
 
 import './Header.scss';
+import { debounce } from 'frontend-lib';
 
 interface HeaderProps {
   onSearch: (value: string) => void;
@@ -43,6 +43,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch }): JSX.Element => {
         <button
           onClick={(): void => {
             setIsSearchbarVisible(false);
+            handleSearch('');
           }}>
           Cancel
         </button>

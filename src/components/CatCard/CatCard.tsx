@@ -20,6 +20,7 @@ const CatCard: React.FC<CatCardProps> = ({ cat, onEdit }): JSX.Element => {
   return (
     <div className="cat-card">
       <div className="picture">
+        {/* TODO: show a placehoder iamge here if the picture is broken */}
         <img src={cat.picture} alt="Cat" />
       </div>
       <div className="flex flex-col grow">

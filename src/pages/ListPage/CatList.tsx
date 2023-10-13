@@ -17,12 +17,16 @@ const CatList: React.FC<CatListProps> = ({
 }): JSX.Element => {
   const { cats, setCats } = useContext(CatContext);
 
-  useEffect((): void => {
+  useEffect((): VoidFunction => {
     (async (): Promise<void> => {
       const cats = await catRepository.query({ keyword });
 
       setCats(sortCatsBy(cats, defaultSortBy));
     })();
+
+    return (): void => {
+      // TODO: cancel the query
+    };
   }, [setCats, defaultSortBy, keyword]);
 
   return (
